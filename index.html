@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELITE COMPONENT PERÚ | Los perfectos componentes solo aqui</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="cyber-grid-bg"></div>
+
+    <div id="preloader"><div class="loader-content"><div class="hex-loader"></div><h2 class="font-orbitron text-gradient mt-3 loader-text">INICIANDO SISTEMA...</h2></div></div>
+
+    <div class="topbar d-none d-lg-block position-relative z-index-3">
+        <div class="container d-flex justify-content-between">
+            <div class="topbar-left"><span><i class="fas fa-headset text-primary"></i> Soporte VIP: 987-654-321</span><span class="ms-4"><i class="fas fa-truck text-primary"></i> Envío Gratis en Lima > S/ 500</span></div>
+           
+    </div>
+
+   <nav class="navbar navbar-expand-lg sticky-top glass-nav" id="mainNav">
+    <div class="container">
+
+        <!-- LOGO -->
+        <a class="navbar-brand font-orbitron fw-bold text-white" href="#">
+            <i class="fas fa-bolt text-primary"></i>
+            ELITE COMPONENT<span class="text-white">.</span>
+        </a>
+
+        <!-- MENU MOBILE -->
+        <button class="navbar-toggler custom-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+
+            <i class="fas fa-bars text-white"></i>
+
+        </button>
+
+        <!-- NAVBAR -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <!-- LINKS -->
+            <ul class="navbar-nav mx-auto nav-tabs-sim">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="#hero">
+                        Inicio
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#bento-categories">
+                        Ecosistema
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#catalogo">
+                        Catálogo Completo
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#pc-builder">
+                        Builder Pro
+                    </a>
+                </li>
+
+            </ul>
+
+     <!-- ACTIONS -->
+<div class="nav-actions d-flex align-items-center gap-3">
+
+    <!-- INVITADO -->
+    <div id="guest-buttons" class="d-flex gap-2">
+
+        <button
+            id="btn-login"
+            class="btn btn-outline-info"
+            onclick="window.location.href='login.html'">
+
+            Iniciar Sesión
+        </button>
+
+        <button
+            id="btn-register"
+            class="btn btn-info"
+            onclick="window.location.href='register.html'">
+
+            Registrarse
+        </button>
+
+    </div>
+
+    <!-- USUARIO LOGUEADO -->
+    <div id="user-menu" class="dropdown d-none">
+
+        <button class="btn btn-info dropdown-toggle"
+                data-bs-toggle="dropdown">
+
+            👤 <span id="user-name"></span>
+
+        </button>
+
+        <ul class="dropdown-menu dropdown-menu-dark">
+
+            <li>
+                <button class="dropdown-item text-danger" id="logoutBtn">
+                    Cerrar sesión
+                </button>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-box">
+
+        <button class="btn-icon" id="search-toggle">
+            <i class="fas fa-search"></i>
+        </button>
+
+        <input
+            type="text"
+            id="search-input"
+            placeholder="Buscar componentes..."
+        >
+
+    </div>
+
+    <!-- CART -->
+    <button class="btn-icon position-relative" id="cart-btn">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="badge-pulse"></span>
+    </button>
+
+</div>
+
+        </div>
+    </div>
+</nav>
+
+ <div id="cart-drawer" class="glass-drawer">
+
+    <div class="drawer-header">
+        <h5 class="font-orbitron mb-0">
+            TU ARSENAL
+        </h5>
+
+        <button id="close-drawer" class="btn-icon">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <div class="drawer-body" id="cart-items">
+
+        <div class="text-center text-gray mt-5" id="empty-cart">
+            <i class="fas fa-shopping-cart fa-3x mb-3"></i>
+            <p>Tu carrito espera hardware.</p>
+        </div>
+
+    </div>
+
+    <div class="drawer-footer">
+
+        <div class="d-flex justify-content-between mb-3 font-orbitron fw-bold fs-5">
+<button id="clear-cart" class="clear-cart-btn">
+    <i class="fas fa-trash-alt"></i>
+</button>
+            <span>TOTAL:</span>
+
+            <span class="text-primary" id="cart-total">
+                S/ 0.00
+            </span>
+
+        </div>
+
+       <button id="checkout-btn"
+class="btn-cyber-primary w-100 d-flex justify-content-center">
+    PAGAR
+    <i class="fab fa-whatsapp ms-2 mt-1"></i>
+</button>
+    </div>
+
+</div>
+
+  <header id="hero" class="hero-module">
+        <video autoplay muted loop class="hero-video">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-futuristic-abstract-digital-background-seamless-loop-32549-large.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content container position-relative z-index-2">
+            <div class="row align-items-center h-100">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="badge-glow mb-3">LOS COMPONENTES MAS ELITE DE TODO LIMA</div>
+                    <h1 class="display-1 font-orbitron fw-black text-uppercase">
+                        Potencia <br> <span class="text-gradient">Sin Límites.</span>
+                    </h1>
+                    <p class="lead text-gray mt-4 mb-5 w-100">Arquitectura de hardware premium para creadores y gamers competitivos. Diseñado en el futuro, disponible hoy en Perú.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#catalogo" class="btn-cyber-primary">VER CATÁLOGO</a>  
+                        <a href="#pc-builder" class="btn-cyber-secondary">ELITE BUILDER <i class="fas fa-tools ms-2"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center" data-aos="fade-left">
+                    <div class="pc-viewport-pro">
+                        <div class="pc-chassis-pro">
+                            
+                            <div class="pro-wall back-wall"></div>
+                            <div class="pro-wall bottom-wall"></div>
+                            
+                            <div class="psu-shroud">
+                                <div class="psu-grille"></div>
+                                <div class="psu-logo font-orbitron">ELITE COMPONENT</div>
+                            </div>
+
+                            <div class="motherboard-pro">
+                                <div class="vrm-heatsink"></div>
+                                <div class="vrm-heatsink top-vrm"></div>
+                                
+                                <div class="ram-bank">
+                                    <div class="ram-stick"><div class="ram-rgb"></div></div>
+                                    <div class="ram-stick"><div class="ram-rgb"></div></div>
+                                </div>
+                                
+                                <div class="aio-pump-pro">
+                                    <div class="infinity-ring-1"></div>
+                                    <div class="infinity-ring-2"></div>
+                                    <div class="infinity-logo"></div>
+                                </div>
+                                
+                                <svg class="aio-tubes" viewBox="0 0 150 200">
+                                    <path d="M 10 160 C 80 180, 140 100, 110 10" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+                                    <path d="M 10 160 C 80 180, 140 100, 110 10" fill="none" stroke="#2a2a2a" stroke-width="4" stroke-dasharray="1 4" stroke-linecap="round"/>
+                                    <path d="M 25 150 C 95 170, 150 90, 125 10" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+
+                            <div class="top-radiator-pro">
+                                <div class="radiator-fins"></div>
+                                <div class="fan-array">
+                                    <div class="fan-pro"><div class="fan-ring"></div><div class="fan-blades"></div></div>
+                                    <div class="fan-pro"><div class="fan-ring"></div><div class="fan-blades"></div></div>
+                                    <div class="fan-pro"><div class="fan-ring"></div><div class="fan-blades"></div></div>
+                                </div>
+                            </div>
+
+                            <div class="rear-fan-pro">
+                                <div class="fan-pro"><div class="fan-ring"></div><div class="fan-blades"></div></div>
+                            </div>
+
+                            <div class="gpu-vertical-pro">
+                                <div class="gpu-backplate"></div>
+                                <div class="gpu-pcb"></div>
+                                <div class="gpu-shroud">
+                                    <div class="gpu-fan-pro"><div class="fan-blades"></div></div>
+                                    <div class="gpu-fan-pro"><div class="fan-blades"></div></div>
+                                    <div class="gpu-fan-pro"><div class="fan-blades"></div></div>
+                                    <div class="gpu-accents-rgb"></div>
+                                </div>
+                                <div class="pcie-riser"></div>
+                            </div>
+
+                            <div class="pro-glass front-glass">
+                                <div class="glass-reflection"></div>
+                            </div>
+                            <div class="pro-glass side-glass">
+                                <div class="glass-reflection"></div>
+                            </div>
+
+                        </div>
+                        
+                        <div class="neon-base-shadow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="brand-marquee border-top border-bottom border-dark py-4 bg-black position-relative z-index-2">
+        <div class="marquee-content font-orbitron text-gray fs-4 gap-5">
+            <span><i class="fab fa-nvidia text-success"></i> NVIDIA</span><span><i class="fas fa-microchip text-danger"></i> AMD RYZEN</span><span><i class="fas fa-gamepad text-primary"></i> ASUS ROG</span><span><i class="fas fa-memory text-white"></i> CORSAIR</span><span><i class="fas fa-desktop text-info"></i> ALIENWARE</span><span><i class="fas fa-fan text-purple"></i> NZXT</span>
+            <span><i class="fab fa-nvidia text-success"></i> NVIDIA</span><span><i class="fas fa-microchip text-danger"></i> AMD RYZEN</span><span><i class="fas fa-gamepad text-primary"></i> ASUS ROG</span><span><i class="fas fa-memory text-white"></i> CORSAIR</span>
+        </div>
+    </div>
+
+<section id="bento-categories" class="py-5 my-5 position-relative z-index-2">
+    <div class="container">
+
+        <div class="section-header text-center mb-5" data-aos="fade-up">
+            <h2 class="font-orbitron display-5">
+                ECOSISTEMA <span class="text-gradient">GAMER</span>
+            </h2>
+        </div>
+
+        <div class="bento-layout">
+
+            <!-- GPU -->
+            <div class="bento-item bento-large glass-card"
+                style="background-image: url('img/k1.png');"
+                data-aos="zoom-in">
+
+                <div class="bento-content">
+                    <h3>Tarjetas Gráficas</h3>
+
+                    <p>NVIDIA Serie 40/50 & AMD Radeon RX</p>
+
+                 <!-- GPU -->
+<a href="#catalogo"
+   class="bento-link"
+   onclick="activarTab('tab-gpus')">
+
+    Explorar
+    <i class="fas fa-arrow-right"></i>
+
+</a>
+                </div>
+
+            </div>
+
+            <!-- CPU -->
+            <div class="bento-item glass-card"
+                style="background-image: url('img/k2.png');"
+                data-aos="fade-left">
+
+                <div class="bento-content">
+                    <h3>Procesadores</h3>
+<!-- CPU -->
+<a href="#catalogo"
+   class="bento-link"
+   onclick="activarTab('tab-cpus')">
+
+    Ver CPUs
+
+</a>
+                </div>
+
+            </div>
+
+            <!-- MONITOR -->
+            <div class="bento-item glass-card"
+                style="background-image: url('img/k3.png');"
+                data-aos="fade-left"
+                data-aos-delay="100">
+
+                <div class="bento-content">
+                    <h3>Monitores</h3>
+
+                    <!-- MONITORES -->
+<a href="#catalogo"
+   class="bento-link"
+   onclick="activarTab('tab-monitores')">
+
+    Paneles e-Sports
+
+</a>
+                </div>
+
+            </div>
+
+            <!-- PERIFERICOS -->
+            <div class="bento-item bento-wide glass-card"
+                style="background-image: url('img/k4.png');"
+                data-aos="fade-up">
+
+                <div class="bento-content">
+                    <h3>Periféricos Pro</h3>
+
+                    <p>
+                        Teclados mecánicos,
+                        mouses ultraligeros
+                        y audio espacial.
+                    </p>
+
+                  <!-- PERIFERICOS -->
+<a href="#catalogo"
+   class="bento-link"
+   onclick="activarTab('tab-perif')">
+
+    Mejora tu Setup
+    <i class="fas fa-arrow-right"></i>
+
+</a>
+<script>
+function activarTab(tabId) {
+
+    const trigger = document.querySelector(
+        `[data-bs-target="#${tabId}"]`
+    );
+
+    const tab = new bootstrap.Tab(trigger);
+    tab.show();
+
+}
+</script>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+    </section>
+
+    <section id="catalogo" class="py-5 bg-dark-texture position-relative z-index-2">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-end mb-5 flex-wrap gap-3">
+                <div data-aos="fade-right">
+                    <h2 class="font-orbitron h1">INVENTARIO <span class="text-white">COMPLETO</span></h2>
+                    <p class="text-primary font-monospace mb-0">> Mostrando 70 componentes con imágenes reales.</p>
+                </div>
+                <ul class="nav nav-pills custom-tabs" id="catalog-tabs" role="tablist" data-aos="fade-left">
+                    <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-gpus">GPUs</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-cpus">CPUs</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-mobo">Motherboards</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-mem">RAM/SSD</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-cooling">Ensamblaje</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-monitores">Monitores</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-perif">Periféricos</button></li>
+                </ul>
+            </div>
+
+            <div class="tab-content" id="catalog-content">
+                
+                <div class="tab-pane fade show active" id="tab-gpus">
+                    <div class="row g-4">
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><div class="card-header-tech"><span class="tech-badge bg-primary text-dark">ENTRY</span></div><img src="img\g1.png" alt="GPU"><div class="card-body-tech"><h4 class="product-title">NVIDIA RTX 3060 12GB</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 1,450</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card border-amd"><div class="card-header-tech"><span class="tech-badge bg-danger text-white">RADEON</span></div><img src="img\g2.png" alt="GPU"><div class="card-body-tech"><h4 class="product-title">AMD RX 7600 XT 16GB</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 1,600</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><div class="card-header-tech"><span class="tech-badge bg-secondary">DLSS 3</span></div><img src="img\g3.png" alt="GPU"><div class="card-body-tech"><h4 class="product-title">NVIDIA RTX 4060 Ti 8GB</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 2,270</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card border-amd"><div class="card-header-tech"><span class="tech-badge bg-danger text-white">GAMING</span></div><img src="img\g4.png" alt="GPU"><div class="card-body-tech"><h4 class="product-title">AMD RX 7800 XT 16GB</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 2,400</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><div class="card-header-tech"><span class="tech-badge bg-success">SUPER</span></div><img src="img\g5.png" alt="GPU"><div class="card-body-tech"><h4 class="product-title">NVIDIA RTX 4070 Super</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 2,800</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><div class="card-header-tech"><span class="tech-badge bg-warning text-dark">ENTHUSIAST</span></div><img src="img\g6.png" alt="GPU"><div class="card-body-tech"><h4 class="product-title">NVIDIA RTX 4080 Super</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 4,800</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card" style="border-color:var(--primary);"><div class="card-header-tech"><span class="tech-badge text-dark" style="background:var(--primary);">ULTIMATE</span></div><img src="img\g7.png" alt="GPU"><div class="card-body-tech"><h4 class="product-title">NVIDIA RTX 5090 32GB ROG</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 16,000</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="tab-cpus">
+                    <div class="row g-4">
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card border-amd"><img src="img\r5.png" alt="CPU"><h4 class="product-title">Ryzen 5 5500</h4><p class="text-gray small">6 Cores / 12 Threads</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 400</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\Captura de pantalla 2026-05-27 221925.png" alt="CPU"><h4 class="product-title">Core i5 13400F</h4><p class="text-gray small">10 Cores / 16 Threads</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 950</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card border-amd"><img src="img\proc3.png" alt="CPU"><h4 class="product-title">Ryzen 5 7600X</h4><p class="text-gray small">AM5 / 6 Cores</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 900</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card border-amd"><img src="img\proc5.png" alt="CPU"><h4 class="product-title">Ryzen 7 7800X3D</h4><p class="text-gray small">3D V-Cache Gaming King</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 1,750</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\proc4.png" alt="CPU"><h4 class="product-title">Core i7 14700K</h4><p class="text-gray small">20 Cores / 28 Threads</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 1,950</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\r9.png" alt="CPU"><h4 class="product-title">Core i9 14900K</h4><p class="text-gray small">24 Cores / 6.0 GHz</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 2,350</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card border-amd"><img src="img\r9x.png" alt="CPU"><h4 class="product-title">Ryzen 9 7950X3D</h4><p class="text-gray small">16 Cores / Extreme</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 2,650</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="tab-mobo">
+                    <div class="row g-4">
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\M1.png" alt="Motherboard"><h4 class="product-title">GIGABYTE A520M K V2</h4><p class="text-gray small">AM4 Entry</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 280</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\m2.png" alt="Motherboard"><h4 class="product-title">MSI PRO H610M-G</h4><p class="text-gray small">LGA1700 Entry</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 350</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\m3.png" alt="Motherboard"><h4 class="product-title">MSI B550M PRO-VDH WIFI</h4><p class="text-gray small">AM4 Mid</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 450</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\m4.png" alt="Motherboard"><h4 class="product-title">GIGABYTE B760 AORUS ELITE</h4><p class="text-gray small">LGA1700 Mid-High</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 750</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\m5.png" alt="Motherboard"><h4 class="product-title">ASUS TUF B650-PLUS WIFI</h4><p class="text-gray small">AM5 Mid-High</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 850</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\m6.png" alt="Motherboard"><h4 class="product-title">ROG Crosshair X670E Hero</h4><p class="text-gray small">AM5 Extreme</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 1,800</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\m7.png" alt="Motherboard"><h4 class="product-title">ROG Maximus Z790 Hero</h4><p class="text-gray small">LGA1700 Extreme</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 2,200</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="tab-mem">
+                    <div class="row g-4">
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\n1.png" alt="RAM"><h4 class="product-title">16GB DDR4 FURY</h4><p class="text-gray small">RAM 3200MHz</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 550</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\n2.png" alt="SSD"><h4 class="product-title">1TB WD Black SN850X</h4><p class="text-gray small">SSD NVMe Gen4</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 450</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\n3.png" alt="RAM"><h4 class="product-title">32GB DDR5 Corsair RGB</h4><p class="text-gray small">RAM 6000MHz</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 3,000</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\n4.png" alt="SSD"><h4 class="product-title">2TB Samsung 980 Pro</h4><p class="text-gray small">SSD NVMe Gen4</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 990</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\n5.png" alt="RAM"><h4 class="product-title">64GB DDR5 Trident Z5</h4><p class="text-gray small">RAM 6400MHz</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 4,500</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\n6.png" alt="RAM"><h4 class="product-title">96GB DDR5 Dominator</h4><p class="text-gray small">RAM 6800MHz</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 2,500</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\n7.png" alt="SSD"><h4 class="product-title">4TB Samsung 990 Pro</h4><p class="text-gray small">SSD NVMe Gen4 Extreme</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 1,960</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="tab-cooling">
+                    <div class="row g-4">
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\e1.png" alt="Cooling"><h4 class="product-title">Deepcool AK400 Air</h4><p class="text-gray small">Cooler CPU</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 150</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\e2.png" alt="PSU"><h4 class="product-title">EVGA 750W Gold</h4><p class="text-gray small">Fuente de Poder</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 450</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\e3.png" alt="Case"><h4 class="product-title">Corsair 4000D Airflow</h4><p class="text-gray small">Case ATX</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 430</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\e4.png" alt="Case"><h4 class="product-title">Lian Li O11 Dynamic EVO</h4><p class="text-gray small">Case Dual Chamber</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 750</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\e5.png" alt="Cooling"><h4 class="product-title">NZXT Kraken Elite 360</h4><p class="text-gray small">Refrigeración Líquida ARGB</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 1,100</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\e6.png" alt="PSU"><h4 class="product-title">MSI MEG Platinum 1200W</h4><p class="text-gray small">Fuente de Poder ATX 3.0</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 1,200</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\e7.png" alt="PSU"><h4 class="product-title">ROG Thor Titanium 1600W</h4><p class="text-gray small">Fuente de Poder OLED</p><div class="d-flex justify-content-between mt-auto"><div class="price-block font-orbitron">S/ 1,800</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="tab-monitores">
+                    <div class="row g-4">
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\p1.png" alt="Monitor"><div class="card-body-tech"><h4 class="product-title">24" Xiaomi G24i 165Hz</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 480</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\p2.png" alt="Monitor"><div class="card-body-tech"><h4 class="product-title">27" AOC 24G2 144Hz IPS</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 750</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\p3.png" alt="Monitor"><div class="card-body-tech"><h4 class="product-title">27" ASUS TUF 165Hz 1440p</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 1,100</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\p4.png" alt="Monitor"><div class="card-body-tech"><h4 class="product-title">32" Samsung Odyssey G5</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 1,300</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\p5.png" alt="Ultrawide"><div class="card-body-tech"><h4 class="product-title">34" Xiaomi Ultrawide 144Hz</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 1,500</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\p6.png" alt="Monitor OLED"><div class="card-body-tech"><h4 class="product-title">27" LG UltraGear 240Hz OLED</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 3,500</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\p7.png" alt="Ultrawide OLED"><div class="card-body-tech"><h4 class="product-title">49" Samsung Odyssey G9 OLED</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 6,500</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="tab-perif">
+                     <div class="row g-4">
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\t1.png" alt="Teclado"><div class="card-body-tech"><h4 class="product-title">Combo Teraware Entry</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 80</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\t2.png" alt="Teclado"><div class="card-body-tech"><h4 class="product-title">Redragon Kumara + Griffin</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 250</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\t3.png" alt="Mouse"><div class="card-body-tech"><h4 class="product-title">Logitech G203 + G213</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 350</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\t4.png" alt="Headset"><div class="card-body-tech"><h4 class="product-title">HyperX Alloy Core + Pulsefire</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 480</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\t5.png" alt="Teclado"><div class="card-body-tech"><h4 class="product-title">Razer Huntsman + DeathAdder</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 850</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\t6.png" alt="Mouse Pro"><div class="card-body-tech"><h4 class="product-title">Logi G915 + Pro X Superlight</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 1,400</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                        <div class="col-xl-3 col-lg-4 col-md-6"><div class="premium-card"><img src="img\t7.png" alt="Headset Pro"><div class="card-body-tech"><h4 class="product-title">ROG Azoth + ROG Harpe Ace</h4><div class="d-flex justify-content-between mt-3"><div class="price-block font-orbitron">S/ 1,900</div><button class="btn-add-cart"><i class="fas fa-plus"></i></button></div></div></div></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="pc-builder" class="py-5 position-relative z-index-2">
+        <div class="container my-5">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <h2 class="font-orbitron display-5">ELITE <span class="text-gradient">BUILDER</span> PRO</h2>
+                <p class="text-gray">Construye tu propio imperio. || 10 Categorías, 7 niveles de rendimiento cada una.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-8" data-aos="fade-right">
+                    <div class="glass-card p-4 h-100 builder-panel">
+                        <h4 class="font-orbitron mb-4 border-bottom border-dark pb-2"><i class="fas fa-cogs text-primary"></i> Arsenal de Componentes</h4>
+                        
+                        <form id="builder-form" class="row g-3">
+                            <div class="col-md-6">
+                                <label class="text-white small mb-1 fw-bold"><i class="fas fa-microchip"></i> 1. Procesador (CPU)</label>
+                                <select class="form-select cyber-select" id="build-cpu">
+                                    <option value="0" data-watts="0">Seleccionar...</option><option value="358" data-watts="65">AMD Ryzen 5 5500 - S/ 358</option><option value="850" data-watts="65">Intel Core i5 13400F - S/ 850</option><option value="858" data-watts="105">AMD Ryzen 5 7600X - S/ 858</option><option value="2000" data-watts="120">AMD Ryzen 7 7800X3D - S/ 2000</option><option value="2100" data-watts="253">Intel Core i7 14700K - S/ 2100</option><option value="3000" data-watts="253">Intel Core i9 14900K - S/ 3000</option><option value="3100" data-watts="162">AMD Ryzen 9 7950X3D - S/ 3100</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="text-white small mb-1 fw-bold"><i class="fas fa-chess-board"></i> 2. Placa Madre</label>
+                                <select class="form-select cyber-select" id="build-mobo">
+                                    <option value="0" data-watts="0">Seleccionar...</option><option value="280" data-watts="30">GIGABYTE A520M K V2 - S/ 280</option><option value="350" data-watts="30">MSI PRO H610M-G - S/ 350</option><option value="450" data-watts="30">MSI B550M PRO-VDH - S/ 450</option><option value="750" data-watts="40">GIGABYTE B760 AORUS - S/ 750</option><option value="850" data-watts="40">ASUS TUF B650-PLUS - S/ 850</option><option value="1800" data-watts="50">ROG Crosshair X670E - S/ 1800</option><option value="2200" data-watts="50">ROG Maximus Z790 - S/ 2200</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12 mt-4">
+                                <label class="text-white small mb-1 fw-bold"><i class="fas fa-video"></i> 3. Tarjeta Gráfica (GPU)</label>
+                                <select class="form-select cyber-select" id="build-gpu">
+                                    <option value="0" data-watts="0">Seleccionar...</option><option value="1300" data-watts="170">NVIDIA RTX 3060 12GB - S/ 1300</option><option value="1600" data-watts="190">AMD Radeon RX 7600 XT - S/ 1600</option><option value="1800" data-watts="160">NVIDIA RTX 4060 Ti 8GB - S/ 1800</option><option value="2400" data-watts="263">AMD Radeon RX 7800 XT - S/ 2400</option><option value="2800" data-watts="220">NVIDIA RTX 4070 Super - S/ 2800</option><option value="4800" data-watts="320">NVIDIA RTX 4080 Super - S/ 4800</option><option value="16600" data-watts="600">NVIDIA RTX 5090 32GB - S/ 16600</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mt-4">
+                                <label class="text-white small mb-1 fw-bold"><i class="fas fa-memory"></i> 4. Memoria RAM</label>
+                                <select class="form-select cyber-select" id="build-ram">
+                                    <option value="0" data-watts="0">Seleccionar...</option><option value="180" data-watts="10">16GB DDR4 3200 Kingston - S/ 180</option><option value="220" data-watts="10">16GB DDR4 3600 Corsair - S/ 220</option><option value="350" data-watts="15">32GB DDR4 3600 Trident - S/ 350</option><option value="480" data-watts="15">32GB DDR5 5600 Crucial - S/ 480</option><option value="550" data-watts="15">32GB DDR5 6000 Corsair - S/ 550</option><option value="1100" data-watts="20">64GB DDR5 6400 Trident - S/ 1100</option><option value="1800" data-watts="25">96GB DDR5 6800 Dominator - S/ 1800</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mt-4">
+                                <label class="text-white small mb-1 fw-bold"><i class="fas fa-hdd"></i> 5. Almacenamiento M.2</label>
+                                <select class="form-select cyber-select" id="build-ssd">
+                                    <option value="0" data-watts="0">Seleccionar...</option><option value="180" data-watts="5">500GB Kingston NV2 - S/ 180</option><option value="290" data-watts="8">1TB Crucial P3 Plus - S/ 290</option><option value="450" data-watts="10">1TB WD Black SN850X - S/ 450</option><option value="750" data-watts="10">2TB Samsung 980 Pro - S/ 750</option><option value="850" data-watts="10">2TB Kingston Renegade - S/ 850</option><option value="1600" data-watts="12">4TB WD Black SN850X - S/ 1600</option><option value="1960" data-watts="12">4TB Samsung 990 Pro - S/ 1960</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mt-4">
+                                <label class="text-white small mb-1 fw-bold"><i class="fas fa-plug"></i> 6. Fuente (PSU)</label>
+                                <select class="form-select cyber-select" id="build-psu">
+                                    <option value="0" data-watts="0">Seleccionar...</option><option value="220" data-watts="0">550W Corsair CV550 - S/ 220</option><option value="280" data-watts="0">650W MSI MAG - S/ 280</option><option value="450" data-watts="0">750W EVGA Gold - S/ 450</option><option value="650" data-watts="0">850W Corsair RM850x - S/ 650</option><option value="900" data-watts="0">1000W ROG Strix - S/ 900</option><option value="1200" data-watts="0">1200W MSI MEG - S/ 1200</option><option value="1800" data-watts="0">1600W ROG Thor - S/ 1800</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mt-4">
+                                <label class="text-white small mb-1 fw-bold"><i class="fas fa-snowflake"></i> 7. Refrigeración</label>
+                                <select class="form-select cyber-select" id="build-cooler">
+                                    <option value="0" data-watts="0">Seleccionar...</option><option value="150" data-watts="5">Deepcool AK400 - S/ 150</option><option value="220" data-watts="5">Thermalright Peerless - S/ 220</option><option value="350" data-watts="15">Cooler Master ML240L - S/ 350</option><option value="480" data-watts="15">Deepcool LT520 AIO - S/ 480</option><option value="950" data-watts="20">Corsair iCUE H150i - S/ 950</option><option value="1100" data-watts="25">NZXT Kraken Elite 360 - S/ 1100</option><option value="1500" data-watts="25">ROG Ryujin III 360 - S/ 1500</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mt-4">
+                                <label class="text-white small mb-1 fw-bold"><i class="fas fa-box"></i> 8. Case (Chasis)</label>
+                                <select class="form-select cyber-select" id="build-case">
+                                    <option value="0" data-watts="0">Seleccionar...</option><option value="200" data-watts="10">Deepcool Macube 110 - S/ 200</option><option value="350" data-watts="10">MSI MAG Forge 100R - S/ 350</option><option value="430" data-watts="15">Corsair 4000D Airflow - S/ 430</option><option value="500" data-watts="15">NZXT H5 Flow RGB - S/ 500</option><option value="750" data-watts="20">Lian Li O11 Dynamic - S/ 750</option><option value="900" data-watts="25">NZXT H9 Flow - S/ 900</option><option value="1200" data-watts="30">Cooler Master HAF 700 - S/ 1200</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mt-4">
+                                <label class="text-white small mb-1 fw-bold"><i class="fas fa-desktop"></i> 9. Pantalla / Monitor</label>
+                                <select class="form-select cyber-select" id="build-monitor">
+                                    <option value="0" data-watts="0">Seleccionar...</option><option value="480" data-watts="30">24" Xiaomi G24i 165Hz - S/ 480</option><option value="750" data-watts="35">27" AOC 24G2 144Hz - S/ 750</option><option value="1100" data-watts="40">27" ASUS TUF 165Hz - S/ 1100</option><option value="1300" data-watts="45">32" Samsung Odyssey G5 - S/ 1300</option><option value="1500" data-watts="50">34" Xiaomi Ultrawide - S/ 1500</option><option value="3500" data-watts="60">27" LG UltraGear 240Hz OLED - S/ 3500</option><option value="6500" data-watts="80">49" Samsung Odyssey G9 - S/ 6500</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mt-4">
+                                <label class="text-white small mb-1 fw-bold"><i class="fas fa-keyboard"></i> 10. Periféricos (Set)</label>
+                                <select class="form-select cyber-select" id="build-perif">
+                                    <option value="0" data-watts="0">Seleccionar...</option><option value="80" data-watts="5">Combo Teraware Entry - S/ 80</option><option value="250" data-watts="5">Redragon Kumara + Griffin - S/ 250</option><option value="350" data-watts="5">Logitech G203 + G213 - S/ 350</option><option value="480" data-watts="5">HyperX Alloy Core + Pulsefire - S/ 480</option><option value="850" data-watts="5">Razer Huntsman + DeathAdder - S/ 850</option><option value="1400" data-watts="5">Logi G915 + Pro X Superlight - S/ 1400</option><option value="1900" data-watts="5">ROG Azoth + ROG Harpe Ace - S/ 1900</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-left">
+                    <div class="glass-card p-4 h-100 d-flex flex-column dashboard-panel position-relative overflow-hidden">
+                        <div class="radar-bg"></div>
+                        <div class="position-relative z-index-2 flex-grow-1">
+                            <h4 class="font-orbitron mb-4 text-center text-primary">Diagnóstico del Sistema</h4>
+                            <div class="stats-box mb-3"><div class="d-flex justify-content-between mb-1"><span class="text-gray small">Potencia (TDP)</span><span class="font-orbitron text-warning" id="calc-watts">0 W</span></div><div class="progress cyber-progress" style="height: 6px;"><div class="progress-bar bg-warning" id="bar-watts" style="width: 0%"></div></div></div>
+                            <div class="stats-box mb-4"><div class="d-flex justify-content-between mb-1"><span class="text-gray small">Clasificación</span><span class="font-orbitron text-info" id="tier-text">Pendiente</span></div><div class="progress cyber-progress" style="height: 6px;"><div class="progress-bar bg-info" id="bar-tier" style="width: 0%"></div></div></div>
+                            <ul class="list-unstyled text-gray small font-monospace"><li class="mb-2" id="status-compat"><i class="fas fa-circle-notch fa-spin text-primary me-2"></i> Analizando 10 componentes...</li><li class="mb-2"><i class="fas fa-check text-success me-2"></i> Cableado Custom Incluido</li><li><i class="fas fa-check text-success me-2"></i> Test de Estrés Térmico</li></ul>
+                        </div>
+                        <div class="position-relative z-index-2 mt-auto pt-4 border-top border-dark">
+                            <div class="text-end mb-3"><span class="text-gray d-block small">Inversión Total Estimada:</span><h2 class="font-orbitron fw-bold m-0" style="color: #fff; text-shadow: 0 0 15px rgba(0,229,255,0.5);" id="calc-total">S/ 0.00</h2></div>
+                            <button 
+    id="add-build-cart"
+    class="btn-cyber-primary w-100 py-3"
+    style="font-size: 1.1rem;"
+>
+    ENSAMBLAR
+    <i class="fas fa-rocket ms-2"></i>
+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-premium pt-5 pb-3 position-relative z-index-2">
+        <div class="container border-bottom border-dark pb-5">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h3 class="font-orbitron fw-bold mb-4"><i class="fas fa-bolt text-primary"></i> ELITE BUILDER<span class="text-white">.</span></h3>
+                    <p class="text-gray mb-4">La plataforma líder en hardware de alto rendimiento y setups para e-sports en Perú.</p>
+                    <div class="social-pills">
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h5 class="footer-heading">Ecosistema</h5>
+                    <ul class="footer-links">
+                        <li><a href="#tab-gpus">Tarjetas Gráficas</a></li>
+                        <li><a href="#tab-cpus">Procesadores</a></li>
+                        <li><a href="#tab-monitores">Monitores e-Sports</a></li>
+                        <li><a href="#pc-builder">Nova Builder Pro</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h5 class="footer-heading">Soporte</h5>
+                    <ul class="footer-links">
+                
+                        <li><a href="#">Políticas de Garantía</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Contacto B2B</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-heading"></h5>
+                    <p class="text-gray small">Únete al club VIP y recibe ofertas flash exclusivas antes que nadie en Lima.</p>
+                    <form class="newsletter-form mt-3">
+                        <input type="email" placeholder="tu@email.com" class="form-control" required>
+                        <button type="submit" class="btn-cyber-primary p-2 px-3" style="clip-path: none;"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container text-center mt-4">
+            <p class="text-muted small font-monospace">&copy; 2026 ELITE COMPONENTS S.A.C. RUC: 123456789. Lima, Perú. Todos los sistemas operando al 100% con los mejores.</p>
+        </div>
+    </footer>
+
+  <a href="login.html" class="btn btn-info me-2">
+    Iniciar Sesión
+</a>
+
+<a href="register.html" class="btn btn-success">
+    Registrarse
+</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="module" src="firebase.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
