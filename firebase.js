@@ -34,6 +34,8 @@ const db = getFirestore(app);
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  /* ================= LOGIN ================= */
+
   const loginBtn = document.getElementById("loginBtn");
 
   if (loginBtn) {
@@ -43,49 +45,84 @@ document.addEventListener("DOMContentLoaded", () => {
       const password = document.getElementById("login-password").value;
 
       try {
-        await signInWithEmailAndPassword(auth, email, password);
+
+        await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+
         alert("Bienvenido");
+
         window.location.href = "index.html";
+
       } catch (e) {
+
         alert(e.message);
+
       }
 
     });
   }
 
+  /* ================= REGISTER ================= */
+
   const registerBtn = document.getElementById("registerBtn");
 
   if (registerBtn) {
+
     registerBtn.addEventListener("click", async () => {
 
-      const name = document.getElementById("register-name").value;
-      const email = document.getElementById("register-email").value;
-      const password = document.getElementById("register-password").value;
+      const name =
+        document.getElementById("register-name").value;
+
+      const email =
+        document.getElementById("register-email").value;
+
+      const password =
+        document.getElementById("register-password").value;
 
       try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+        const userCredential =
+          await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
 
         await updateProfile(userCredential.user, {
           displayName: name
         });
 
         alert("Usuario creado");
+
         window.location.href = "index.html";
 
       } catch (e) {
+
         alert(e.message);
+
       }
 
     });
+
   }
+
+  /* ================= LOGOUT ================= */
 
   const logoutBtn = document.getElementById("logoutBtn");
 
   if (logoutBtn) {
+
     logoutBtn.addEventListener("click", async () => {
+
       await signOut(auth);
+
       window.location.href = "index.html";
+
     });
+
   }
 
   /* ================= CARRITO ================= */
@@ -93,88 +130,280 @@ document.addEventListener("DOMContentLoaded", () => {
   let carrito = [];
 
   function actualizarLocal() {
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+    localStorage.setItem(
+      "carrito",
+      JSON.stringify(carrito)
+    );
   }
 
   function cargarLocal() {
-    const data = localStorage.getItem("carrito");
-    if (data) carrito = JSON.parse(data);
+
+    const data =
+      localStorage.getItem("carrito");
+
+    if (data) {
+      carrito = JSON.parse(data);
+    }
+
   }
 
   cargarLocal();
 
-  window.agregarCarrito = function (nombre, precio) {
-    carrito.push({ nombre, precio });
-    actualizarLocal();
-    console.log("Carrito:", carrito);
-  };
+  console.log("Carrito cargado:");
+  console.log(carrito);
 
-  /* ================= BOTONES + ================= */
+  /* ================= AGREGAR PRODUCTOS ================= */
 
-  document.querySelectorAll(".btn-add-cart").forEach(btn => {
-    btn.addEventListener("click", (e) => {
+  document
+    .querySelectorAll(".btn-add-cart")
+    .forEach(btn => {
 
-      const card = e.target.closest(".premium-card");
+      btn.addEventListener("click", () => {
 
-      const nombre = card.querySelector(".product-title").innerText;
+        const card =
+          btn.closest(".premium-card");
 
-      const precioText = card.querySelector(".price-block").innerText;
-      const precio = parseFloat(precioText.replace("S/", "").replace(",", ""));
+        const nombre =
+          card.querySelector(".product-title")
+          .innerText;
 
-      window.agregarCarrito(nombre, precio);
+        const precioText =
+          card.querySelector(".price-block")
+          .innerText;
 
-    
+        const precio =
+          parseFloat(
+            precioText
+              .replace("S/", "")
+              .replace(",", "")
+              .trim()
+          );
+
+        carrito.push({
+          nombre,
+          precio
+        });
+
+        actualizarLocal();
+
+        console.log("Producto agregado:");
+        console.log(carrito);
+
+     const mensaje = document.createElement("div");
+
+mensaje.innerText = "✅ Producto agregado";
+
+mensaje.style.position = "fixed";
+mensaje.style.top = "20px";
+mensaje.style.right = "20px";
+mensaje.style.background = "#00e5ff";
+mensaje.style.color = "#000";
+mensaje.style.padding = "12px 20px";
+mensaje.style.borderRadius = "10px";
+mensaje.style.zIndex = "9999";
+
+document.body.appendChild(mensaje);
+
+setTimeout(() => {
+  mensaje.remove();
+}, 2000);
+
+      });
 
     });
-  });
 
   /* ================= CHECKOUT ================= */
 
-  document.addEventListener("DOMContentLoaded", () => {
+  const checkoutBtn =
+    document.getElementById("checkout-btn");
 
-    const checkoutBtn = document.getElementById("checkout-btn");
+  if (checkoutBtn) {
 
-    if (checkoutBtn) {
-      checkoutBtn.addEventListener("click", async () => {
+    checkoutBtn.addEventListener("click", async () => {
 
-        const user = auth.currentUser;
+      console.log("CLICK PAGAR");
 
-        if (!user) {
-          alert("Debes iniciar sesión");
-          return;
-        }
+      console.log(carrito);
 
-        if (carrito.length === 0) {
-          alert("Carrito vacío");
-          return;
-        }
+      const user = auth.currentUser;
 
-        const total = carrito.reduce((a, b) => a + b.precio, 0);
+      if (!user) {
 
-        try {
-          await addDoc(collection(db, "orders"), {
+        alert("Debes iniciar sesión");
+
+        return;
+
+      }
+
+      if (carrito.length === 0) {
+
+        alert("Carrito vacío");
+
+        return;
+
+      }
+
+      const total =
+        carrito.reduce(
+          (suma, item) => suma + item.precio,
+          0
+        );
+
+      try {
+
+        await addDoc(
+          collection(db, "orders"),
+          {
             uid: user.uid,
             email: user.email,
             productos: carrito,
             total: total,
             fecha: new Date()
-          });
+          }
+        );
 
-          alert("Compra guardada en Firestore ✔");
+        alert("Compra guardada en Firebase ✔");
 
-          carrito = [];
-          actualizarLocal();
+        carrito = [];
 
-        } catch (e) {
-          console.log(e);
+        actualizarLocal();
+
+      } catch (e) {
+
+        console.error(e);
+
+        alert(e.message);
+
+      }
+
+    });
+
+  }
+
+
+const buildBtn =
+  document.getElementById("add-build-cart");
+
+if (buildBtn) {
+
+  buildBtn.addEventListener("click", async () => {
+
+    const user = auth.currentUser;
+
+    if (!user) {
+      alert("Debes iniciar sesión");
+      return;
+    }
+
+    const build = {
+
+      cpu:
+        document.getElementById("build-cpu")
+        .selectedOptions[0].text,
+
+      motherboard:
+        document.getElementById("build-mobo")
+        .selectedOptions[0].text,
+
+      gpu:
+        document.getElementById("build-gpu")
+        .selectedOptions[0].text,
+
+      ram:
+        document.getElementById("build-ram")
+        .selectedOptions[0].text,
+
+      ssd:
+        document.getElementById("build-ssd")
+        .selectedOptions[0].text,
+
+      psu:
+        document.getElementById("build-psu")
+        .selectedOptions[0].text,
+
+      cooler:
+        document.getElementById("build-cooler")
+        .selectedOptions[0].text,
+
+      case:
+        document.getElementById("build-case")
+        .selectedOptions[0].text,
+
+      monitor:
+        document.getElementById("build-monitor")
+        .selectedOptions[0].text,
+
+      perifericos:
+        document.getElementById("build-perif")
+        .selectedOptions[0].text
+
+    };
+
+    try {
+
+      await addDoc(
+        collection(db, "builds"),
+        {
+          uid: user.uid,
+          email: user.email,
+          configuracion: build,
+          fecha: new Date()
         }
+      );
 
-      });
+      alert("Build guardada correctamente ✔");
+
+    } catch (e) {
+
+      console.error(e);
+
+      alert("Error al guardar");
+
     }
 
   });
 
+}
+
+
+
+  
 });
+
+onAuthStateChanged(auth, (user) => {
+
+  const guest =
+    document.getElementById("guest-buttons");
+
+  const userMenu =
+    document.getElementById("user-menu");
+
+  const userName =
+    document.getElementById("user-name");
+
+  if (!guest || !userMenu) return;
+
+  if (user) {
+
+    guest.classList.add("d-none");
+
+    userMenu.classList.remove("d-none");
+
+    if (userName) {
+      userName.textContent =
+        user.displayName || user.email;
+    }
+
+  } else {
+
+    guest.classList.remove("d-none");
+
+    userMenu.classList.add("d-none");
+
+  }
+
+});
+
 
 /* ================= UI LOGIN ================= */
 
@@ -198,5 +427,3 @@ onAuthStateChanged(auth, (user) => {
   }
 
 });
-
-
