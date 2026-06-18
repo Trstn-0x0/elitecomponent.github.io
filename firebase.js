@@ -154,7 +154,7 @@ cargarLocal();
 
   /* ================= AGREGAR PRODUCTOS ================= */
 
-  document
+ document
     .querySelectorAll(".btn-add-cart")
     .forEach(btn => {
 
@@ -188,6 +188,7 @@ cargarLocal();
 
         console.log("Producto agregado:");
         console.log(carrito);
+        //prueba
 
      const mensaje = document.createElement("div");
 
