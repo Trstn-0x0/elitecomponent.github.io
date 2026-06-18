@@ -271,9 +271,9 @@ iif (checkoutBtn) {
         collection(db, "orders"),
 
         {
-
+// Issue #12 - Asociación de órdenes con usuario autenticado
+// Guarda UID y correo del usuario que realizó la compra
           uid: user.uid,
-
           email: user.email,
 
           productos: carrito,
