@@ -130,26 +130,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let carrito = [];
 
-  function actualizarLocal() {
-    localStorage.setItem(
-      "carrito",
-      JSON.stringify(carrito)
-    );
+function actualizarLocal() {
+  localStorage.setItem(
+    "carrito",
+    JSON.stringify(carrito)
+  );
+}
+
+function cargarLocal() {
+
+  const data =
+    localStorage.getItem("carrito");
+
+  if (data) {
+    carrito = JSON.parse(data);
   }
 
-  function cargarLocal() {
+}
 
-    const data =
-      localStorage.getItem("carrito");
-
-    if (data) {
-      carrito = JSON.parse(data);
-    }
-
-  }
-
-  cargarLocal();
-
+cargarLocal();
   console.log("Carrito cargado:");
   console.log(carrito);
 
