@@ -4,7 +4,7 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut,
+  signOut, 
   onAuthStateChanged,
   updateProfile
 } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
@@ -218,40 +218,75 @@ setTimeout(() => {
   const checkoutBtn =
   document.getElementById("checkout-btn");
 
-if (checkoutBtn) {
+iif (checkoutBtn) {
+
+
 
   checkoutBtn.addEventListener("click", async () => {
 
+
+
     const user = auth.currentUser;
 
+
+
     if (!user) {
+
       alert("Debes iniciar sesión");
+
       return;
+
     }
+
+
 
     if (carrito.length === 0) {
+
       alert("Carrito vacío");
+
       return;
-    }
+
+    } 
+
+
 
     const total =
+
       carrito.reduce(
+
         (suma, item) => suma + item.precio,
+
         0
+
       );
+
+
 
     try {
 
+
+
       await addDoc(
+
         collection(db, "orders"),
+
         {
+
           uid: user.uid,
+
           email: user.email,
+
           productos: carrito,
+
           total: total,
+
           fecha: new Date()
+
         }
+
       );
+
+
 
       alert("Compra guardada en Firebase ✔");
 
