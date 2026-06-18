@@ -216,70 +216,60 @@ setTimeout(() => {
   /* ================= CHECKOUT ================= */
 
   const checkoutBtn =
-    document.getElementById("checkout-btn");
+  document.getElementById("checkout-btn");
 
-  if (checkoutBtn) {
+if (checkoutBtn) {
 
-    checkoutBtn.addEventListener("click", async () => {
+  checkoutBtn.addEventListener("click", async () => {
 
-      console.log("CLICK PAGAR");
+    const user = auth.currentUser;
 
-      console.log(carrito);
+    if (!user) {
+      alert("Debes iniciar sesión");
+      return;
+    }
 
-      const user = auth.currentUser;
+    if (carrito.length === 0) {
+      alert("Carrito vacío");
+      return;
+    }
 
-      if (!user) {
+    const total =
+      carrito.reduce(
+        (suma, item) => suma + item.precio,
+        0
+      );
 
-        alert("Debes iniciar sesión");
+    try {
 
-        return;
+      await addDoc(
+        collection(db, "orders"),
+        {
+          uid: user.uid,
+          email: user.email,
+          productos: carrito,
+          total: total,
+          fecha: new Date()
+        }
+      );
 
-      }
+      alert("Compra guardada en Firebase ✔");
 
-      if (carrito.length === 0) {
+      carrito = [];
 
-        alert("Carrito vacío");
+      actualizarLocal();
 
-        return;
+    } catch (e) {
 
-      }
+      console.error(e);
 
-      const total =
-        carrito.reduce(
-          (suma, item) => suma + item.precio,
-          0
-        );
+      alert(e.message);
 
-      try {
+    }
 
-        await addDoc(
-          collection(db, "orders"),
-          {
-            uid: user.uid,
-            email: user.email,
-            productos: carrito,
-            total: total,
-            fecha: new Date()
-          }
-        );
+  });
 
-        alert("Compra guardada en Firebase ✔");
-
-        carrito = [];
-
-        actualizarLocal();
-
-      } catch (e) {
-
-        console.error(e);
-
-        alert(e.message);
-
-      }
-
-    });
-
-  }
+}
 
 
 const buildBtn =
