@@ -65,7 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ================= REGISTER ================= */
+ //---------------------register-----------------------------
+ //---------------------------------------------------------
 
   const registerBtn = document.getElementById("registerBtn");
 
